@@ -1,0 +1,42 @@
+package com.spring.beans;
+
+public class Doctor {
+	
+	private String name;
+	private String specility;
+	private int age;
+	
+	
+	
+	public Doctor(String name, String specility, int age) {
+		super();
+		this.name = name;
+		this.specility = specility;
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSpecility() {
+		return specility;
+	}
+	public void setSpecility(String specility) {
+		this.specility = specility;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public String toString() {
+		return "Doctor [name=" + name + ", specility=" + specility + ", age=" + age + "]";
+	}
+	
+	
+	
+}

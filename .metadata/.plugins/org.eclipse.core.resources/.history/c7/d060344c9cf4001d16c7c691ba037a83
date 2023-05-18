@@ -1,0 +1,5 @@
+package com.spring.collections.standalone;
+
+public class DatabaseConfig {
+
+}

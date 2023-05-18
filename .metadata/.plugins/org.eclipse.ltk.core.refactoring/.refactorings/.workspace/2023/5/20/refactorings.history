@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Spring&apos; to &apos;Spring-xml&apos;" description="Rename resource &apos;Spring&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Spring" name="Spring-xml" stamp="1684325431377" updateReferences="true"/>
+</session>

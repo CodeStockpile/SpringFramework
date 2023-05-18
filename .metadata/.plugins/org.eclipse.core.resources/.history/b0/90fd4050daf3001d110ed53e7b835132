@@ -1,0 +1,18 @@
+package com.spring.bean.lifecycle;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class LifecycleDemo {
+
+	public static void main(String[] args) {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/spring/bean/lifecycle/spring.xml");
+
+		Car car = (Car)context.getBean("car");
+		System.out.println(car);
+		System.out.println(car.getName());
+		System.out.println(car.getPrice());
+		context.registerShutdownHook();
+	}
+
+}

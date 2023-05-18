@@ -1,0 +1,4 @@
+
+To use stereotype annotations we need to add tag in xml file:
+
+	<context:component-scan base-package=""></context:component-scan>

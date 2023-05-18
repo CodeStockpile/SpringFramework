@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+	<!-- Constructor Injection -->
+	<bean id="person" class="com.spring.ci.Person">
+		<constructor-arg value="Rajesh" />
+		<constructor-arg value="909" />
+	</bean>
+
+	<!-- Constructor Injection -->
+	<bean id="report" class="com.spring.ci.Report">
+		<constructor-arg value="123" type="int" />
+		<constructor-arg value="Blood" type="String" />
+		<constructor-arg ref="person" />
+	</bean>
+	
+	<!-- <bean id="report" class="com.spring.ci.Report">
+		<property name="id" value="90" />
+		<property name="testName" value="Blood" />
+		<property name="person" ref="person" />
+	
+	</bean> -->
+	<bean id="mul" class="com.spring.ci.Multiplication">
+		<constructor-arg value="123" type="int" index="1"/>
+		<constructor-arg value="45" type="int" index="0"/>
+		
+	</bean>
+	
+
+
+
+</beans>

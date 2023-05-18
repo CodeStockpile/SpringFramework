@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- standalone list -->
+	<util:list list-class="java.util.LinkedList" id="myList">
+		<value>908683724</value>
+		<value>9053663724</value>
+		<value>9000000724</value>
+	</util:list>
+
+	<!-- standalone map -->
+	<util:map map-class="java.util.HashMap" id="course">
+		<entry key="Java" value="12" />
+		<entry key="Python" value="10" />
+		<entry key="Angular" value="9" />
+		<entry key="MERN" value="15" />
+	</util:map>
+
+	<!-- standalone set -->
+	<util:set set-class="java.util.TreeSet" id="tech">
+		<value>Java</value>
+		<value>Python</value>
+		<value>Angular</value>
+	</util:set>
+
+
+	<bean id="employee"
+		class="com.spring.collections.standalone.Employee">
+		<property name="name" value="Ram" />
+		<property name="contact" ref="myList"></property>
+		<property name="tech" ref="tech"></property>
+
+		<property name="experience">
+			<ref bean="course" />
+
+		</property>
+	</bean>
+
+	<!-- standalone properties -->
+
+	<util:properties id="dbconfig">
+		<prop key="driver">com.driver.cj.jdbc.mysql</prop>
+		<prop key="username">Surjeet</prop>
+		<prop key="password">*******</prop>
+		<prop key="url">mysql:jdbc//localhost:3306/db</prop>
+
+	</util:properties>
+
+	<bean name="database"
+		class="com.spring.collections.standalone.DatabaseConfig">
+		<property name="prop" ref="dbconfig" />
+	</bean>
+
+</beans>

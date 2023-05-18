@@ -1,0 +1,10 @@
+package com.spring.beans;
+
+public class Doctor {
+	
+	private String name;
+	private String specility;
+	private int age;
+
+	
+}

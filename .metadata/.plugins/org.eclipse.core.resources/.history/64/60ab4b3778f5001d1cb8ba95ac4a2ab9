@@ -1,0 +1,35 @@
+package com.spring.jdbc.dao.impl;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.spring.jdbc.dao.EmployeeDao;
+import com.spring.jdbc.entity.Employee;
+
+public class EmployeeDaoImpl implements EmployeeDao {
+
+	private JdbcTemplate template;
+
+	public int insert(Employee emp) {
+		String query = "INSERT INTO employee(name, age, course) VALUES(?,?,?)";
+		int result = this.template.update(query, emp.getName(), emp.getAge(), emp.getCourse());
+		return result;
+	}
+
+	
+
+	public int updateEmployee(Employee emp) {
+		String query = "UPDATE employee set name=?, age =?, course=? where id=?"; 
+		return 0;
+	}
+	
+	// Setter is necessary as default injection is setter
+		public void setTemplate(JdbcTemplate template) {
+			this.template = template;
+		}
+
+//	public JdbcTemplate getTemplate() {
+//		return template;
+//	}
+//
+
+}
