@@ -22,6 +22,15 @@ public class Student {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public Student(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+
+
 	public Student(int id, String name, int age) {
 		super();
 		this.id = id;

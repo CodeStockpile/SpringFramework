@@ -1,0 +1,26 @@
+package com.spring.orm.dao;
+
+import org.hibernate.Session;
+import org.springframework.orm.hibernate5.HibernateOperations;
+import org.hibernate.SessionFactory;
+
+import com.spring.orm.entities.Student;
+
+public class StudentDao {
+	
+	private HibernateOperations  hibernateOperations;
+	
+	public int addStudent(Student student) {
+		
+        SessionFactory sessionFactory = ((SessionFactory) hibernateOperations);
+        Session session = sessionFactory.getCurrentSession();
+		//Integer id = (Integer) session.save(student);
+        
+        session.persist(student);
+        int id = student.getId();
+		return id;
+	}
+
+	
+	
+}

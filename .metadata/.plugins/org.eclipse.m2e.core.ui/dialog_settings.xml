@@ -25,6 +25,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.spring.orm"/>
 			<item value="com.spring.jdbc"/>
 			<item value="SpringBasics.Spring_annotation"/>
 			<item value="SpringBasics.Spring"/>
@@ -33,6 +34,7 @@
 			<item value="SpringBasics"/>
 		</list>
 		<list key="artifactId">
+			<item value="Spring-ORM"/>
 			<item value="Spring-jdbc"/>
 			<item value="Spring-annotation"/>
 			<item value="Spring"/>
