@@ -4676,3 +4676,4 @@ org.eclipse.core.runtime.CoreException: Launch configuration AutowireDemo (2) re
 2023-05-21 18:12:25,542 [Worker-140: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\hp\new-eclipse-workspace\Spring-ORM\src\main\resources
 2023-05-21 18:12:25,547 [Worker-140: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-05-21 18:12:25,547 [Worker-140: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\hp\new-eclipse-workspace\Spring-ORM\src\test\resources
+2023-05-22 11:35:29,869 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
