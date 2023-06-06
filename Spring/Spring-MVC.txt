@@ -1,0 +1,22 @@
+  
+  
+  
+  ======== Spring MVC ==============
+  
+ -> In spring mvc Dispatcher servlet acts as Front Controller.
+ -> HandlerMapper will identify request handler.
+ -> Controller will process the request and will return logical view name. It is called as RequestHandler.
+ -> View Resolver identfies view file using prefix and suffix.
+ -> View Resolver will render model data on the view file.
+ -> Finally Dispatcher Servlett will send reponse to client request.
+ 
+ ----------------------------------------------------------------------------
+ 
+ ->  spring-boot-starter-web dependecy is used.
+ -> @Controller annotation is used to represent ous class as controller.
+ -> @RequestMapping annotation is used to bind controller method to URL pattern.
+ -> For ModelViewObject we set :
+	1. Data in the form of key value 
+	2. Logical view name
+ 
+Note : Model data we  can access in view file using key

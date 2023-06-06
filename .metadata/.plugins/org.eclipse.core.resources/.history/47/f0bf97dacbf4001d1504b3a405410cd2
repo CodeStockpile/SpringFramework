@@ -1,6 +1,0 @@
-package com.spring.basic;
-
-public class Course {
-
-	private String courseName;
-}

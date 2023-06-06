@@ -1,0 +1,201 @@
+	-------------------------------------------------------------------------------------------------
+											RESTful SERVICES										
+	------------------------------------------------------------------------------------------------
+  1.Distributed Applications :
+  
+  -> There are  several technologies are available in market to develop Distributed Applications:
+		1. CORBA (Common Object Request Broker Architecture)-> uses IDL(Interface Definition Language)
+			firstly code is written in IDL then converted to language specific
+		
+		2.RMI (Remote Method Invocation)
+		
+		3.EJB (Enterprise Java Beans) -> language dependent
+			Concepts introduced: (IOC)
+			- Containers
+			- Container Managed Object 
+			
+		4.Webservices 
+		5.RESTful services
+		
+-> People were looking for Interoperability.
+ 
+ ==========  Interoperability ? [Imp] ================
+	- Two applications should communicate irrespetive to language and platform(OS).
+
+--------------------------------------------------------------------------------------------------------------------------	
+	
+-> To achieve interoperability every company started doing analysis and they provided their own rules and guidelines.
+
+-> Several Industry Experts from several companies formed as a group and they named it as WS-I group.
+
+** ------ WS-I(Webservices Interoperability) ---------------------------
+
+-> They released B.P.1.0 (Basic Profile 1.0) specification to achieve Interoperablity.
+
+-> By supporting BP 1.0 Sun Microsystem released one api called JAX-RPC.
+
+-> JAX-RPC (Java Api for XML - Remote procedure call)
+
+-> After That BP 1.1 specification was released JAX-WS (Java Api for XML- Webservices).
+
+So, 
+	we can develop webservices in java in 2 ways:
+	
+	1. JAX-RPC (B.P. 1.0)  ---> outdated
+	2. JAX-WS (B.P.1.1)
+	
+-> If we develop webservices using any 1 of the above API that webservices called as SOAP based webservices.
+
+------------------------- 1. JAX-RPC (B.P. 1.0) (only interfaces)--------------------------------
+Implementations:
+	Sun Implementation
+	Apache Axis Implementation
+	Oracle Weblogic
+	IBM webSphere  etc...
+	
+------------------------- 1. JAX-WI (B.P. 1.1) ----------------------------------------------------	
+Implementation:
+	
+	Reference implementation (RI)
+	Apache Axis 2
+	Apache cxf (Spring based)
+	Oracle weblogic
+	JBOSS
+	IBM
+
+Note: By using API we can`t develop webservices. Along wuth Api we need implementation to develop a webservice.
+			
+----------------------------------------------------------------------------------------------------------
+
+
+-> Roy Fielding identified the loop holes and problems of the BP 1.0 & BP 1.1 and gave his own principles.
+-> They are called as REST Architecture Principles.
+-> By supporting Roy Fielding, Sun released one api called JAX-RS api.
+     
+	----------------------  JAX-RS (Java Api for XML - Restful services) --------------------------------------
+		
+Implementation:
+	Jersey Implementation (Sun)
+	Rest Easy implementation (JBOSS)
+
+-----------------------------------------------------------------------------------------------------------------
+Q. What is Webservices ?
+A. Webservices is distributed technology which is used to develop Distributed application with Interoperability.
+ 
+ ----------------------------: Webservices Architecture :--------------------------------------
+ 
+ 1. Provider
+ 2. WSDL
+ 3. UDDI : Universal Discovery Description Language
+ 4. Consumer
+ 5. SOAP XML : Simple Object Access Protocol
+ ---------------------------------------------------------------
+ 
+-> It based on :
+	1.Producer - application providing the business services to other application
+	2.Consumer - application accessing the business services from other application 
+	
+-> Webservice always development begin form provider side.
+-> Provider Development can be done in 2 ways:
+		a) Contract First Approach - WSDL file will be created first then service development will start
+		b) Contract Last Approach - reverse of above
+
+Q. What is Contract ?
+A. Contract means WSDL (Webservices Description Language).
+	WSDL is a special XMl which describes how provider is providing services to consumer.
+	WSDL contains five sections:
+			1. Type
+			2. Message
+			3. portType
+			4. binding
+			5. service
+
+-> WSDL file is published to UDDI and then Consumer is going to download the file and use the business logic.
+-> WSDL is shared using the UDDI (theoratically), but can be shared using any mode of communication.
+-> Once WSDL is received Consumer developmetn can be start.
+
+->> Consumer can be developed in 2 ways:
+		1. Stub based (recommended)
+		2. Dynamic proxy 
+		
+-> Once Consumer Development is completed, it will send the request with data  to provider in the form of SOAP XML.
+-> Provider will process consumer request and will send response to consumer SOAP XML.
+->
+
+
+
+ -> SOAP based are not really 100% interoperable due to data exchange through XML.
+
+-----------------------------------------------------------------------------------------------------------------------
+							RESTful Webservice
+-----------------------------------------------------------------------------------------------------------------------
+							
+ -> It has 2 actors :
+		1.Resource : It  provides business service to other applications.
+		2.Client : It access business service from other applications.
+		
+	
+ -> RESTful service are 100% interoperable.
+ 
+ * Rest Component:
+	1. Resources (RestController)
+	2. Client
+	3. XML/JSON
+	4. WADL /Swagger
+	5. Postman
+	
+	REST Architecture Address
+	--------------------------------
+	1. Unique Address : Every distributed component should bind to unique url.
+	2. Uniform Constraint Interface : bind reaources to http protocol methods(GET, POST, PUT, DELETE) ->(Easily adaptibility, accessiblility)
+	3. Media Representation : Make interoperability, exchange of data in different format and languages
+	4. Communication Stateless :We should not store any infromation related to client in server.
+	5. HATEOS (Hypermedia As an Engine for Application Stage) :Server should send response to clients using hyperlinks. 
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+				Building first RESTful application using Stage   
+				
+ -> Spring Web MVC module provided support for Web app development REST app development.
+ 
+ Note : Spring MVC jars are suffieiceint  to build rest applications.
+ 
+ Dependency : spring-boot-starter-web
+ - Web app develeopment
+ - REST app development
+ - Embedded Tomcat Container
+ 
+  <<<<< Cloud plateform : Pivotal web services{Pivotal Cloud Platform} >>>>
+  
+     
+-----------------------------------------------------------------------------------------------------------------------------
+ ** Idempotent methods or safe methods : if we send same request for multiple times also they won`t change resources at the server.
+ 
+ -> @RestController is available from spring verssion 4.0
+ 
+-> Before @RestController , @Controller + @ResposnseBody was used.
+-> In the method mappings, if we are returning the object then we have to make the response to be understandable by the other
+	machine, then convert it into the either 'json' or 'xml'.
+	
+	E.g. @GetMapping(value="/id", produces="application/json")
+
+-> TO send data in GET request we can use :
+		1. Query Parameters : @RequestParam
+			- Will represent data in key-value pair format.
+			- Used to send data from client to server in url.
+			- It satarts with '?' and separated by '&'.
+			- Present only at the end of the URL. e.g. ?id=
+			- By default it is necessary but we can make it optional.
+			- We can also pass default value 
+			- Impl :
+					public void getMrks(@RequestParam(value='id',
+											defaultValue = 90 ,
+											required=false) int id){ ... }
+		
+		2. Path Parameters : @PathVaiable  
+			- Will directly values in the URL.
+			- It can present anywhere in the URL.
+			- To separate PathParam we will use '/'.
+			- A placeholer '{}' is defined and that is used inside the method.
+
+-> These paramters will be present in the url

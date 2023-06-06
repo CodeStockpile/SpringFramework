@@ -1,9 +1,0 @@
-package com.spring.ref;
-
-public class Battery {
-
-	public Battery() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

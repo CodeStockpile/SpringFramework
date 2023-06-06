@@ -1,9 +1,0 @@
-package com.spring.jdbc.dao;
-
-import com.spring.jdbc.entity.Employee;
-
-public interface EmployeeDao {
-
-	public int insert(Employee emp);
-	public int updateEmployee(Employee emp);
-}

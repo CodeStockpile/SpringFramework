@@ -1,0 +1,62 @@
+
+
+	================================ Spring Data ==============================================
+	
+ Q. What is Persistence ?
+ A. Persistence means Storage. The place where we are going to store data are called Persistence Store.
+ 
+	Persistence Operations:
+		1. Insert
+		2. Update
+		3. Delete
+		4. Retrieve
+	Persistence technologies:
+	-> Used to develop persistence logic
+	-> Persistence logic is used to perform persistence operations in persistence store.
+	-> There are several tech to develop persistence logic
+		1. Java JDBC
+		2. Spring JDBC
+		3. ORM frameworks
+		4. Spring Data etc...
+
+-----------------------------------------------------------------------------------------------------------------------
+
+	Best practices to develop persistence logic
+	
+	-> We should maintain persistence logic as separate layer (DAO or Repository)
+	-> In persistence logic we follow Table per DAO concept -(One table , one dao) => Single responsibility principle
+	-> Table name, column name, sequences names has the lenght liitaions of 30 characters, otherwise ignore vowels.
+	-> For every table atleast one primary key is recommended.
+	-> For every table Auditing columns are recommneded :
+	`		CREATED_BY
+			CREATED_DATE
+			UPDATED_BY
+			UPDATED_DATE
+	-> For every primary key create a dedicated sequences to generate primary key columns.
+	-> Always maintain cahche for static table data to avoid DB interactions.(https://chat.openai.com/share/3475072f-a85b-4108-a520-8fa8e2040ec3)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+	We will use the DB as the persistence store:
+	
+	DB installation :
+		1. DB server
+		2. DB client (Installed by developers in company)
+	
+-> In company, DB server will be install by DB admin in remote machines
+-> After installing DB server, DB team wil share DB details to team
+-> Developers and Testers will install DB Client Software in their amchines.
+
+
+*** TO AVOID BIOLERPLATE CODE IN DAO LAYER SPRING DATA CAME INTO PICTURE .
+-> No methods are required to perform CRUD operations.
+ 
+ -----------------------------------------------------------------------------------------------------------------------------
+ 
+ Spring DATA provide 2 repository interfaces:
+	1. Crudrespository -provide methods to perform crud operations
+	2. JpaRepository - provide methods to perform crud operations + pagination + sorting
+	
+	    
